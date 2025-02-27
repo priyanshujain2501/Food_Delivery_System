@@ -169,7 +169,7 @@ function SplitBill() {
 
                 <div className='flex justify-end'>
 
-                    <a href="/" className='flex justify-center  text-white bg-green-400 hover:bg-orange-500 duration-300 py-2 sm:py-3 w-1/3 text-xs mt-7'>
+                    <a href="/" className='flex justify-center text-center  text-white bg-green-400 hover:bg-orange-500 duration-300 px-3 py-2 sm:py-3 text-xs mt-7'>
                         PROCCED TO PAYMENT
                     </a>
 

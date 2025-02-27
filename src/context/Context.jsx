@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { food_list } from "../assets/assets2";
+import { useNavigate } from "react-router-dom";
 
 //create context
 export const Context = createContext()
@@ -11,6 +12,8 @@ function ContextProvider({children}){
     const [promo, setPromo] = useState("");
     const [discountedAmt, setDiscountedAmt] = useState(0);
     const [members,setMembers] = useState([]);
+
+    const navigate = useNavigate();
 
     const addToCart = (itemId) => {
 
@@ -50,8 +53,10 @@ function ContextProvider({children}){
     const promoCodes = {
         "WELCOME10": 10,  //10% off
         "FOODIE50": 50,   //50% off upto $80
-        "SAVE100": 100,    //100% off upto $100
+        "SAVE100": 100,    //100% off upto $80
     }
+
+    
 
     const contextValue = {
         food_list,

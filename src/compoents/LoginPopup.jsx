@@ -6,10 +6,11 @@ function LoginPopup({setShowLogin}) {
     const [currState,setCurrState] = useState("Login")
 
     return (
-        <div className='absolute z-10 w-full h-[73%] sm:h-full bg-[#00000090] grid place-items-center'>
+        <div className='absolute z-10 w-full h-screen bg-[#00000090] grid place-items-center'>
 
-            <form className=' text-[#808080] animate-fadeIn w-80 h-[50%] flex flex-col bg-white p-5 space-y-4 rounded-lg mb-16'>
+            <form className=' text-[#808080] animate-fadeIn w-80 h-[48%] flex flex-col bg-white p-5 space-y-4 rounded-lg mb-36 md:mb-16'>
 
+                {/* Heading and cancel */}  
                 <div className='flex justify-between'>
                     
                     <h2 className='text-xl text-black font-semibold'>{currState}</h2>

@@ -5,17 +5,17 @@ function Footer() {
   return (
     <div id='footer' className='px-4 md:px-10 bg-[#323232] mt-20 pt-1'>
 
-      <div className='flex flex-col items-center sm:items-start sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 text-sm '>
+      <div className='flex flex-col sm:items-start sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 text-sm '>
 
         {/* Left Section */}
 
-        <div className='w-1/3 sm:w-full mx-auto'>
+        <div className='w-full sm:w-full mx-auto'>
           
-          <div className='flex flex-col sm:flex-row items-center mb-4 gap-2'>
+          <div className='flex flex-col sm:flex-row mb-4 gap-2'>
 
             {/* <img src={NavbarIcon} className='flex items-center w-8 sm:w-14 rounded-full hover:cursor-pointer' /> */}
 
-            <div className='flex items-center text-medium sm:text-2xl font-bold hover:cursor-pointer text-orange-500'>Food Delivery System</div>
+            <div className='flex text-xl sm:text-2xl font-bold hover:cursor-pointer text-orange-500'>Food Delivery System</div>
 
           </div>
 
@@ -40,7 +40,7 @@ function Footer() {
 
         {/* Right Section */}
 
-        <div className='flex flex-col '>
+        <div className='w-full flex flex-col '>
 
           <p className='text-xl font-medium mb-4 text-white'>GET IN TOUCH</p>
 

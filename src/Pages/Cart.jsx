@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Cart() {
 
-  const [message,setMessage] = useState(0)
+  const [message,setMessage] = useState("")
 
   const {cartItems,food_list,removeFromCart,getCartTotalAmt,promoCodes,promo,setPromo,discountedAmt,setDiscountedAmt} = useContext(Context)
 
@@ -24,16 +24,25 @@ function Cart() {
   const handlePromoBtn = () => {
 
     if (checkPromo()) {
-      const discountValue = Math.ceil(Math.min(getCartTotalAmt() * (promoCodes[promo] / 100), 80))
-      setDiscountedAmt(discountValue)
+      setMessage("Promo applied successfully");
+    } else {
+      setMessage("Promo is not valid");
     }
 
   }
 
   useEffect(() => {
-    promo !== "" && checkPromo() === false
-      ? setMessage("Promo is not valid") : setMessage("")
-  },[handlePromoBtn])
+
+    //off upto 80 dollars
+    if(promo !== "" && checkPromo()){
+      const discountValue = Math.floor(Math.min(getCartTotalAmt() * (promoCodes[promo] / 100), 80))
+      setDiscountedAmt(discountValue)
+    }
+    else{
+      setDiscountedAmt(0);
+    }
+    
+  },[cartItems,promo])
 
   
   return (
@@ -118,12 +127,12 @@ function Cart() {
 
             <hr className='my-2.5' />
 
-            <div className={`justify-between ${discountedAmt === 0 ? "hidden" : "flex"}`}>
+            <div className={`justify-between ${getCartTotalAmt() > 0 && discountedAmt !== 0 ? "flex" : "hidden"}`}>
               <p>Promo</p>
-              <p>${discountedAmt===0 ? "" : discountedAmt}</p>
+              <p>${getCartTotalAmt() > 0 && discountedAmt===0 ? "" : discountedAmt}</p>
             </div>
 
-            <hr className={`my-2.5 ${discountedAmt === 0 ? "hidden" : "block"}`} />
+            <hr className={`my-2.5 ${getCartTotalAmt() > 0 && discountedAmt !== 0 ? "block" : "hidden"}`} />
 
             <div className='flex justify-between'>
               <b>Total</b>

@@ -75,13 +75,13 @@ function PlaceOrder() {
 
           </div>
 
-          <div className='flex justify-between'>
+          <div className='flex justify-between w-full'>
 
-            <a href="/" className='flex justify-center  text-white bg-orange-500 py-2 sm:py-3 w-1/3 text-xs mt-7'>
+            <a href="/" className='flex justify-center text-center  text-white bg-orange-500 px-3 py-2 sm:py-3 text-xs mt-7'>
               PROCCED TO PAYMENT
             </a>
 
-            <button onClick={() => navigate("/splitbill")} className='text-white bg-orange-500 py-2 sm:py-3 w-1/3 text-xs mt-7'>SPLIT BILL</button>
+            <button onClick={() => navigate("/splitbill")} className='text-white bg-orange-500 py-2 sm:py-3 px-3 text-xs mt-7'>SPLIT BILL</button>
 
           </div>
 
