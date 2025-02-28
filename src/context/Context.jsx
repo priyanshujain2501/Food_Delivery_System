@@ -12,6 +12,7 @@ function ContextProvider({children}){
     const [promo, setPromo] = useState("");
     const [discountedAmt, setDiscountedAmt] = useState(0);
     const [members,setMembers] = useState([]);
+    const [isPromoApplied, setIsPromoApplied] = useState(false);
 
     const navigate = useNavigate();
 
@@ -72,6 +73,8 @@ function ContextProvider({children}){
         setDiscountedAmt,
         members, 
         setMembers,
+        isPromoApplied,
+        setIsPromoApplied,
     };
 
 

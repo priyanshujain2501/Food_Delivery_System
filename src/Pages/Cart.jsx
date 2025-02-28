@@ -6,8 +6,9 @@ import { useNavigate } from 'react-router-dom';
 function Cart() {
 
   const [message,setMessage] = useState("")
+  
 
-  const {cartItems,food_list,removeFromCart,getCartTotalAmt,promoCodes,promo,setPromo,discountedAmt,setDiscountedAmt} = useContext(Context)
+  const {cartItems,food_list,removeFromCart,getCartTotalAmt,promoCodes,promo,setPromo,discountedAmt,setDiscountedAmt,isPromoApplied,setIsPromoApplied} = useContext(Context)
 
   const navigate = useNavigate();
 
@@ -24,9 +25,12 @@ function Cart() {
   const handlePromoBtn = () => {
 
     if (checkPromo()) {
+      setIsPromoApplied(true);
       setMessage("Promo applied successfully");
     } else {
+      setIsPromoApplied(false);
       setMessage("Promo is not valid");
+      setDiscountedAmt(0);
     }
 
   }
@@ -34,15 +38,20 @@ function Cart() {
   useEffect(() => {
 
     //off upto 80 dollars
-    if(promo !== "" && checkPromo()){
+    if(!checkPromo()){
+      setDiscountedAmt(0);
+      setMessage("Promo is not valid");
+    }
+
+    if(checkPromo() && isPromoApplied){
       const discountValue = Math.floor(Math.min(getCartTotalAmt() * (promoCodes[promo] / 100), 80))
       setDiscountedAmt(discountValue)
     }
     else{
-      setDiscountedAmt(0);
+      setIsPromoApplied(false)
     }
     
-  },[cartItems,promo])
+  },[cartItems,promo,isPromoApplied,getCartTotalAmt(),setDiscountedAmt])
 
   
   return (

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Context } from '../context/Context'
 import unknown_image from '../assets/unknown_image.jpeg'
 import { FaTrash } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 
 function SplitBill() {
 
@@ -12,6 +13,8 @@ function SplitBill() {
 
     const { getCartTotalAmt, discountedAmt,members,setMembers} = 
     useContext(Context);
+
+    const navigate = useNavigate()
 
     const handleAddBtn = () => {
 
@@ -167,7 +170,11 @@ function SplitBill() {
 
                 </div>
 
-                <div className='flex justify-end'>
+                <div className='flex justify-between'>
+
+                    <button onClick={() => navigate('/order')} className='flex justify-center text-center  text-white bg-green-400 hover:bg-orange-500 duration-300 px-3 py-2 sm:py-3 text-xs mt-7'>
+                        Back
+                    </button>
 
                     <a href="/" className='flex justify-center text-center  text-white bg-green-400 hover:bg-orange-500 duration-300 px-3 py-2 sm:py-3 text-xs mt-7'>
                         PROCCED TO PAYMENT
